@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi app</title>
+</head>
+<body>
+    <h1>Saludo</h1>
+    <input id="nombre" placeholder="Escribe tu nombre"/>
+    <button onclick="saludar()"> Saludar </button>
+    <p id="respuesta"></p>
+
+    <script>
+        async function saludar() {
+            const nombre =document.getElementById("nombre").value   
+            const res= await fetch(`http://127.0.0.1:8001/saludo?nombre=${nombre}`)
+            const data=await res.json()
+            document.getElementById("respuesta").innerText=data.mensaje
+
+        }
+
+
+    </script>
+
+    <h2>Accion</h2>
+    <input id="age" placeholder="Escribe tu age"/>
+    <button onclick="call()"> Accionar</button>
+    <p id="llamada"></p>
+    <p id="end"></p>
+
+    <script>
+        async function call(){
+            const edad=document.getElementById("age").value
+            const res=await fetch(`http://127.0.0.1:8001/call_to_action?edad=${edad}`)
+            const dat=await res.json()
+            document.getElementById("llamada").innerText=dat.call
+            document.getElementById("end").innerText=dat.fin
+    
+        }
+    </script>
+
+</body>
+</html>
