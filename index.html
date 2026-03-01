@@ -14,7 +14,7 @@
     <script>
         async function saludar() {
             const nombre =document.getElementById("nombre").value   
-            const res= await fetch(`https://fundamental-web-1.onrender.com//saludo?nombre=${nombre}`)
+            const res= await fetch(`https://fundamental-web-1.onrender.com/saludo?nombre=${nombre}`)
             const data=await res.json()
             document.getElementById("respuesta").innerText=data.mensaje
 
